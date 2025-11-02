@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Mission</title>
+    <!-- Import the Poppins font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* * Basic CSS for layout and styling.
+         * This section defines the visual appearance of your HTML elements.
+         */
+
+        /* A universal rule for more predictable sizing */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Basic reset and page font styles */
+        body, html {
+            height: 100%; /* Ensure the html and body tags take up full height */
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Changed to Poppins */
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrollbar from the curved elements */
+        }
+
+        /* The main container now uses flexbox to manage a full-height layout */
+        .website-container {
+            width: 100%;
+            min-height: 100vh;
+            /* The gradient is now on the main container to fill the background during animation */
+            background: linear-gradient(135deg, #f6c37f, #f6bd6f);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevent banners from causing scrollbars when hidden */
+        }
+
+        /* --- Header Section (Top white bar) --- */
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3rem;
+            z-index: 10;
+            position: relative; /* Positioning context for the curve */
+        }
+
+        /* The curve attached to the bottom of the header */
+        header::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            bottom: -10px; /* Positioned hanging off the bottom */
+            left: -25%;
+            /* Adjusted shadow to be tighter and more directional */
+            box-shadow: 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+
+        /* --- Logo Styles --- */
+        header .logo svg {
+            height: 100px; /* Reduced logo size slightly for balance */
+            width: auto;
+            display: block;
+        }
+
+        /* --- Navigation Menu Styles --- */
+        nav {
+            flex-grow: 1;
+            margin-left: 4rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333; /* Changed to match the bottom banner */
+            font-weight: 700;
+            font-size: 1.4rem;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f6bd6f; /* Corrected hover colour */
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f6bd6f; /* Corrected underline colour */
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- Main Content Area (Orange theme) --- */
+        main {
+            background-color: transparent; /* Main area is now transparent to show the container's gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Vertically center the column */
+            flex-grow: 1;
+            min-height: 0;
+            position: relative;
+        }
+
+        /* Styles for the content column */
+        .main-content-column {
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            color: #333;
+            background-color: rgba(0,0,0,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        /* --- Welcome Banner (Bottom white bar) --- */
+        .welcome-banner {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* The curve attached to the top of the footer */
+        .welcome-banner::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            top: -10px; /* Positioned sitting on top of the banner */
+            left: -25%;
+             /* Adjusted shadow to be tighter and more directional */
+            box-shadow: 0 -8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0.5rem 1rem;
+            }
+
+            header .logo svg {
+                height: 100px;
+            }
+
+            nav {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .welcome-banner {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- This container wraps your entire website design -->
+    <div class="website-container">
+
+        <!-- Header Section: Contains the logo and navigation menu -->
+        <header>
+            <div class="logo">
+              <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="460 130 490 490">
+                  <defs>
+                    <style>
+                      .cls-1 {
+                        fill: none;
+                        stroke: #000;
+                        stroke-miterlimit: 10;
+                        stroke-width: 7px;
+                      }
+                    </style>
+                  </defs>
+                  <polygon points="923.9 263.42 688.91 263.42 688.91 293.18 934 293.18 923.9 263.42"/>
+                  <polygon points="793.81 149 793.81 600.41 822.81 585.41 822.81 158.47 793.81 149"/>
+                  <g>
+                    <path d="M518.84,396.38c4.68,2.88,11.52,5.28,18.72,5.28,10.68,0,16.92-5.64,16.92-13.8,0-7.56-4.32-11.88-15.24-16.08-13.2-4.68-21.36-11.52-21.36-22.92,0-12.6,10.44-21.96,26.16-21.96,8.28,0,14.28,1.92,17.88,3.96l-2.88,8.52c-2.64-1.44-8.04-3.84-15.36-3.84-11.04,0-15.24,6.6-15.24,12.12,0,7.56,4.92,11.28,16.08,15.6,13.68,5.28,20.64,11.88,20.64,23.76,0,12.48-9.24,23.28-28.32,23.28-7.8,0-16.32-2.28-20.64-5.16l2.64-8.76Z"/>
+                    <path d="M673.04,373.58c-.6-11.28-1.32-24.84-1.2-34.92h-.36c-2.76,9.48-6.12,19.56-10.2,30.72l-14.28,39.24h-7.92l-13.08-38.52c-3.84-11.4-7.08-21.84-9.36-31.44h-.24c-.24,10.08-.84,23.64-1.56,35.76l-2.16,34.68h-9.96l5.64-80.88h13.32l13.8,39.12c3.36,9.96,6.12,18.84,8.16,27.24h.36c2.04-8.16,4.92-17.04,8.52-27.24l14.4-39.12h13.32l5.04,80.88h-10.2l-2.04-35.52Z"/>
+                    <path d="M725.36,396.38c4.68,2.88,11.52,5.28,18.72,5.28,10.68,0,16.92-5.64,16.92-13.8,0-7.56-4.32-11.88-15.24-16.08-13.2-4.68-21.36-11.52-21.36-22.92,0-12.6,10.44-21.96,26.16-21.96,8.28,0,14.28,1.92,17.88,3.96l-2.88,8.52c-2.64-1.44-8.04-3.84-15.36-3.84-11.04,0-15.24,6.6-15.24,12.12,0,7.56,4.92,11.28,16.08,15.6,13.68,5.28,20.64,11.88,20.64,23.76,0,12.48-9.24,23.28-28.32,23.28-7.8,0-16.32-2.28-20.64-5.16l2.64-8.76Z"/>
+                  </g>
+                  <g>
+                    <path d="M561.57,462.66c-.36-6.77-.79-14.91-.72-20.95h-.22c-1.66,5.69-3.67,11.74-6.12,18.43l-8.57,23.55h-4.75l-7.85-23.11c-2.3-6.84-4.25-13.11-5.62-18.87h-.14c-.14,6.05-.5,14.19-.94,21.46l-1.3,20.81h-5.98l3.38-48.53h7.99l8.28,23.47c2.02,5.98,3.67,11.3,4.9,16.34h.22c1.22-4.9,2.95-10.22,5.11-16.34l8.64-23.47h7.99l3.02,48.53h-6.12l-1.22-21.31Z"/>
+                    <path d="M584.83,435.45v48.53h-6.26v-48.53h6.26Z"/>
+                    <path d="M594.91,476.34c2.81,1.73,6.91,3.17,11.23,3.17,6.41,0,10.15-3.38,10.15-8.28,0-4.54-2.59-7.13-9.14-9.65-7.92-2.81-12.82-6.91-12.82-13.75,0-7.56,6.26-13.18,15.7-13.18,4.97,0,8.57,1.15,10.73,2.38l-1.73,5.11c-1.58-.86-4.82-2.3-9.22-2.3-6.62,0-9.14,3.96-9.14,7.27,0,4.54,2.95,6.77,9.65,9.36,8.21,3.17,12.39,7.13,12.39,14.26,0,7.49-5.54,13.97-16.99,13.97-4.68,0-9.79-1.37-12.38-3.1l1.58-5.26Z"/>
+                    <path d="M630.4,476.34c2.81,1.73,6.91,3.17,11.23,3.17,6.41,0,10.15-3.38,10.15-8.28,0-4.54-2.59-7.13-9.14-9.65-7.92-2.81-12.82-6.91-12.82-13.75,0-7.56,6.26-13.18,15.7-13.18,4.97,0,8.57,1.15,10.73,2.38l-1.73,5.11c-1.58-.86-4.82-2.3-9.22-2.3-6.62,0-9.15,3.96-9.15,7.27,0,4.54,2.95,6.77,9.65,9.36,8.21,3.17,12.39,7.13,12.39,14.26,0,7.49-5.54,13.97-16.99,13.97-4.68,0-9.79-1.37-12.38-3.1l1.58-5.26Z"/>
+                    <path d="M673.02,435.45v48.53h-6.26v-48.53h6.26Z"/>
+                    <path d="M725.44,459.21c0,16.71-10.15,25.56-22.54,25.56s-21.82-9.94-21.82-24.63c0-15.41,9.58-25.49,22.54-25.49s21.82,10.15,21.82,24.55ZM687.79,460c0,10.37,5.62,19.66,15.48,19.66s15.55-9.14,15.55-20.16c0-9.65-5.04-19.73-15.48-19.73s-15.55,9.58-15.55,20.23Z"/>
+                    <path d="M733.58,483.98v-48.53h6.84l15.55,24.55c3.6,5.69,6.41,10.8,8.71,15.77l.14-.07c-.58-6.48-.72-12.39-.72-19.95v-20.31h5.91v48.53h-6.34l-15.41-24.63c-3.38-5.4-6.62-10.95-9.07-16.2l-.22,.07c.36,6.12,.5,11.95,.5,20.02v20.74h-5.9Z"/>
+                  </g>
+                  <g>
+                    <path class="cls-1" d="M476.15,375.39c0-129.49,104.29-234.47,232.95-234.47,23.26,0,45.71,3.45,66.9,9.83v-7.18c-21.23-6.22-43.68-9.57-66.9-9.57-131.94,0-238.9,107.66-238.9,240.46s106.96,240.46,238.9,240.46c23.44,0,46.08-3.41,67.47-9.74v-5.33c-21.36,6.5-44.01,10-67.47,10-128.65,0-232.95-104.97-232.95-234.47Z"/>
+                    <path class="cls-1" d="M935.7,320.87c4.14,17.5,6.34,35.75,6.34,54.52,0,80.63-40.44,151.74-102,193.93v6.27c65.02-42.97,107.96-117,107.96-201.14,0-18.74-2.13-36.98-6.16-54.48l-6.14,.89Z"/>
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Welcome.html">Welcome</a></li>
+                    <li><a href="About_Us.html">About Us</a></li>
+                    <li><a href="Resources.html">Resources</a></li>
+                    <li><a href="Donate.html">Donate</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+              <div class="main-content-column">
+                <h1>Deliverance</h1>
+              </div>
+        </main>
+
+        <!-- Welcome Banner Section: The text bar at the bottom -->
+        <div class="welcome-banner">
+
+        </div>
+
+    </div>
+</body>
+</html>
